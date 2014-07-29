@@ -14,11 +14,20 @@ use wcf\system\tagging\TagEngine;
 
 class FinalizeNewsActionListener implements IEventListener{
 
+	public $eventObj = null;
+
 	public function execute($eventObj, $className, $eventName) {
-		if ($className != 'cms\form\NewsAddForm') return;x
+		$this->eventObj = $eventObj;
+		if (method_exists($this, $eventObj->getActionName())) {
+			$this->{$eventObj->getActionName()}();
+		}
+	}
+
+	public function create() {
 		$board = BoardCache::getInstance()->getBoard(CMS_NEWS_POST_BOARD);
 		if ($board === null || !$board->isBoard()) return;
-		print_r($eventObj); exit;
+		$returnValues = $this->eventObj->getReturnValues();
+		$news = $returnValues['returnValues'];
 		$data = array(
 			'boardID' => $board->boardID,
 			'languageID' => $news->languageID,
@@ -39,15 +48,19 @@ class FinalizeNewsActionListener implements IEventListener{
 				'showSignature' => $news->showSignature
 			),
 			'tags' => array()
-		);
-		//enable tags
-		if (MODULE_TAGGING && WBB_THREAD_ENABLE_TAGS) {
-			$tags = TagEngine::getInstance()->getObjectTags('de.codequake.cms.news', $news->newsID);
-			foreach ($tags as $tag) {
-				$threadData['tags'][] = $tag->name;
+			);
+			//enable tags
+			if (MODULE_TAGGING && WBB_THREAD_ENABLE_TAGS) {
+				$tags = TagEngine::getInstance()->getObjectTags('de.codequake.cms.news', $news->newsID);
+				foreach ($tags as $tag) {
+					$threadData['tags'][] = $tag->name;
+				}
 			}
-		}
-		$action = new ThreadAction(array(), 'create', $threadData);
-		$resultValues = $action->executeAction();
+			$action = new ThreadAction(array(), 'create', $threadData);
+			$resultValues = $action->executeAction();
+
+			//mark as read
+			$action = new ThreadAction(array($resultValues['returnValues']), 'markAsRead');
+			$action->executeAction();
 	}
 }

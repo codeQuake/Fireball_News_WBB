@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/eventListener.xsd">
 	<import>
 		<eventlistener>
-			<eventclassname>cms\form\NewsAddForm</eventclassname>
-			<eventname>saved</eventname>
+			<eventclassname>cms\data\news\NewsAction</eventclassname>
+			<eventname>finalizeAction</eventname>
 			<listenerclassname>cms\system\event\listener\FinalizeNewsActionListener</listenerclassname>
 			<environment>user</environment>
 		</eventlistener>
