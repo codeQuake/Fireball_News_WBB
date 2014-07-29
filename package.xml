@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package name="de.codequake.cms.news.wbb" xmlns="http://www.woltlab.com"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/package.xsd">
+	<packageinformation>
+		<packagename>Fireball CMS - Nachrichtensystem - Burning Board Integration</packagename>
+		<packagedescription>Verbindet Nachrichtensystem und WoltLab Burning Board</packagedescription>
+		<plugin>de.codequake.cms</plugin>
+		<version>1.0.0 Beta 1</version>
+		<date>2014-07-29</date>
+	</packageinformation>
+
+	<authorinformation>
+		<author>Jens Krumsieck</author>
+		<authorurl>http://codequake.de</authorurl>
+	</authorinformation>
+
+	<requiredpackages>
+		<requiredpackage minversion="2.0.0">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="2.0.0 Beta 1">de.codequake.cms</requiredpackage>
+		<requiredpackage minversion="1.0.0 alpha 1">de.codequake.cms.news</requiredpackage>
+		<requiredpackage minversion="4.0.0">com.woltlab.wbb</requiredpackage>
+	</requiredpackages>
+
+	<instructions type="install">
+		<!-- tar -->
+		<instruction type="file" application="cms">files.tar</instruction>
+
+		<!-- xml -->
+		<instruction type="eventListener">xml/eventlistener.xml</instruction>
+		<instruction type="option">xml/option.xml</instruction>
+	</instructions>
+</package>

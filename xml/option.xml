@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/option.xsd">
+	<import>
+		<categories>
+			<category name="cms.news.wbbIntegration">
+				<parent>cms.news</parent>
+			</category>
+		</categories>
+		<options>
+			<option name="cms_news_post_news">
+				<categoryname>cms.news.wbbIntegration</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="cms_news_post_board">
+				<categoryname>cms.news.wbbIntegration</categoryname>
+				<optiontype>wBBBoardSelect</optiontype>
+			</option>
+		</options>
+	</import>
+</data>
