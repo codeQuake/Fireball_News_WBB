@@ -15,7 +15,7 @@ use wcf\system\tagging\TagEngine;
 class FinalizeNewsActionListener implements IEventListener{
 
 	public function execute($eventObj, $className, $eventName) {
-		if ($className != 'cms\form\NewsAddForm') return;
+		if ($className != 'cms\form\NewsAddForm') return;x
 		$board = BoardCache::getInstance()->getBoard(CMS_NEWS_POST_BOARD);
 		if ($board === null || !$board->isBoard()) return;
 		print_r($eventObj); exit;
