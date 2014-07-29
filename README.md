@@ -2,6 +2,7 @@ Fireball CMS News Burning Board Integration
 =================
 
 Burning Board Integration for  Fireball CMS - News System
+
 [![Build Status](https://travis-ci.org/codeQuake/Fireball_News_WBB.svg?branch=master)](https://travis-ci.org/codeQuake/Fireball_News_WBB)
 
 Contributions
