@@ -1,6 +1,7 @@
 <?php
 namespace cms\system\event\listener;
 use wbb\data\board\BoardCache;
+use wbb\data\thread\ThreadAction;
 use wcf\system\event\IEventListener;
 use wcf\system\tagging\TagEngine;
 
@@ -14,10 +15,9 @@ use wcf\system\tagging\TagEngine;
 class FinalizeNewsActionListener implements IEventListener{
 
 	public function execute($eventObj, $className, $eventName) {
-		if ($eventObj->getActionName() != 'create') return;
+		if ($className != 'cms\form\NewsAddForm') return;
 		$board = BoardCache::getInstance()->getBoard(CMS_NEWS_POST_BOARD);
 		if ($board === null || !$board->isBoard()) return;
-
 		foreach ($eventObj->getObjects() as $news) {
 			$data = array(
 				'boardID' => $board->boardID,
@@ -35,8 +35,8 @@ class FinalizeNewsActionListener implements IEventListener{
 					'message' => '[news='.$news->newsID.'][/news]',
 					'enableBBCodes' => 1,
 					'enableHtml' => 0,
-					'enableSmilies' => $news->enableSmiles,
-					'enableSignature' => $news->enableSignature
+					'enableSmilies' => $news->enableSmilies,
+					'showSignature' => $news->showSignature
 				),
 				'tags' => array()
 			);
