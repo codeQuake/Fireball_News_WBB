@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd"
+	languagecode="de">
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.category.cms.news.wbbIntegration"><![CDATA[WoltLab Burning Board Integration]]></item>
+		<item name="wcf.acp.option.cms_news_post_news"><![CDATA[Nachrichten im Forum veröffentlichen]]></item>
+		<item name="wcf.acp.option.cms_news_post_board"><![CDATA[Forum]]></item>
+	</category>
+</language>

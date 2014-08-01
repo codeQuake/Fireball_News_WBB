@@ -23,6 +23,9 @@
 	</requiredpackages>
 
 	<instructions type="install">
+		<!--lang -->
+		<instruction type="language">language/*.xml</instruction>
+
 		<!-- tar -->
 		<instruction type="file" application="cms">files.tar</instruction>
 
