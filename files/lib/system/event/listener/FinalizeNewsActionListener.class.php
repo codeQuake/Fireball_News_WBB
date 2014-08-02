@@ -41,7 +41,7 @@ class FinalizeNewsActionListener implements IEventListener{
 			'board' => $board,
 			'data' => $data,
 			'postData' => array(
-				'message' => '[news='.$news->newsID.'][/news]',
+				'message' => ($news->teaser != '' ? $news->teaser : $news->text).'[news='.$news->newsID.'][/news]',
 				'enableBBCodes' => 1,
 				'enableHtml' => 0,
 				'enableSmilies' => $news->enableSmilies,

@@ -6,8 +6,8 @@
 		<packagename>Fireball CMS - Nachrichtensystem - Burning Board Integration</packagename>
 		<packagedescription>Verbindet Nachrichtensystem und WoltLab Burning Board</packagedescription>
 		<plugin>de.codequake.cms</plugin>
-		<version>1.0.0 Beta 1</version>
-		<date>2014-07-29</date>
+		<version>1.0.0 Beta 2</version>
+		<date>2014-08-02</date>
 	</packageinformation>
 
 	<authorinformation>
@@ -32,5 +32,9 @@
 		<!-- xml -->
 		<instruction type="eventListener">xml/eventlistener.xml</instruction>
 		<instruction type="option">xml/option.xml</instruction>
+	</instructions>
+
+	<instructions type="update" fromversion="1.0.0 Beta 1">
+		<instruction type="file" application="cms">files.tar</instruction>
 	</instructions>
 </package>
